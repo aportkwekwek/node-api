@@ -24,11 +24,37 @@ import fs from "fs/promises";
 
 const readFile = async () => {
   try {
-    const data = await fs.readFile("./public/readthisfile.txt", "utf-8");
+    const data = await fs.readFile("./public/writethisfile.txt", "utf-8");
     console.log(data);
   } catch (err) {
     console.error(err);
   }
 };
 
+const writeFile = async () => {
+  try {
+    await fs.writeFile("./public/writethisfile.txt", "Hello World!");
+    console.log("File written successfully");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+writeFile();
+
+const appendFile = async () => {
+  try {
+    await fs.appendFile(
+      "./public/writethisfile.txt",
+      "\nHello World Again Appended!"
+    );
+    console.log("File appended successfully");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+appendFile();
+
 readFile();
+// const fs = require("fs/promises");
